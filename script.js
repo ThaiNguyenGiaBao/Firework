@@ -778,14 +778,16 @@ $(function () {
     // supprise happy new year!
     if (supprise && onHold == 3) {
       supprise = false;
-      countText ++ ;
+      countText++;
       setTimeout(initText, 3000);
 
       if (countText == 3) {
         setTimeout(() => {
           isLoop = false;
-          image.style.display = "block";
-          image.style.opacity = "1"
+          image.style.display = "block"; // Make the image visible
+          setTimeout(() => {
+            image.style.opacity = "1"; // Start the fade-in effect
+          }, 100); // Small delay to allow the browser to render the `display` change
         }, 3000);
       }
     }
