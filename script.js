@@ -780,14 +780,15 @@ $(function () {
       countText++;
       setTimeout(initText, 3000);
 
-      if (countText == 3) {
+      if (countText == 2) {
         setTimeout(() => {
           isLoop = false;
           content.style.display = "block"; // Make the image visible
           setTimeout(() => {
+            content.style.opacity = "0";
             content.style.opacity = "1"; // Start the fade-in effect
           }, 100); // Small delay to allow the browser to render the `display` change
-        }, 3000);
+        }, 10000);
       }
     }
 
