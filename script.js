@@ -26,7 +26,6 @@ $(function () {
     audioExplode.push(audio.cloneNode(true));
   }
   for (var i = 0; i < audioExplode.length; i++) {
-    // Set the volume to 50% (0.5)
     audioExplode[i].volume = 0.05;
   }
 
@@ -654,7 +653,7 @@ $(function () {
 
   var isStart = false;
   let button = document.getElementById("playButton");
-  let image = document.getElementById("image");
+  let content = document.getElementById("content");
 
   button.addEventListener("click", function () {
     musicB();
@@ -784,9 +783,9 @@ $(function () {
       if (countText == 3) {
         setTimeout(() => {
           isLoop = false;
-          image.style.display = "block"; // Make the image visible
+          content.style.display = "block"; // Make the image visible
           setTimeout(() => {
-            image.style.opacity = "1"; // Start the fade-in effect
+            content.style.opacity = "1"; // Start the fade-in effect
           }, 100); // Small delay to allow the browser to render the `display` change
         }, 3000);
       }
