@@ -22,7 +22,7 @@ $(function () {
   var audio = document.getElementById("explode");
   var currentAudioIndex = 0;
   // Create and initialize audio elements
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 10; i++) {
     audioExplode.push(audio.cloneNode(true));
   }
   for (var i = 0; i < audioExplode.length; i++) {
@@ -39,9 +39,9 @@ $(function () {
   var listSpecial = [];
   var listSpark = [];
   var lights = [];
-  var fireNumber = 10;
+  var fireNumber = 7;
   var center = { x: canvas.width / 2, y: canvas.height / 2 };
-  var range = 150;
+  var range = 70;
   var fired = 0;
   var onHold = 0;
   var supprise = false;
@@ -63,8 +63,8 @@ $(function () {
   var textString = "happynewyearnqsc2025";
 
   var textMatrix = [
-    0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 2,
-    1, 3, 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 1, 9, 1, 10, 1,
+    1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0,
+    3, 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 1, 9, 1, 10, 1, 11, 1,
   ];
   var chars = {
     h: [
@@ -250,7 +250,7 @@ $(function () {
         vy: Math.sin(rad) * velocity + (Math.random() - 0.5) * 0.5,
         ay: 0.04,
         alpha: 1,
-        life: Math.round((Math.random() * range) / 2) + range / 2,
+        life: Math.round((Math.random() * range) / 2) + range,
       };
       firework.base = {
         life: firework.life,
@@ -654,7 +654,6 @@ $(function () {
 
   var isStart = false;
   let button = document.getElementById("playButton");
-  
 
   button.addEventListener("click", function () {
     musicB();
@@ -664,17 +663,17 @@ $(function () {
       (function (i) {
         setTimeout(function () {
           var fire = {
-            x: (Math.random() * range) / 2 - range / 4 + center.x,
-            y: Math.random() * range * 2.5 + canvas.height,
+            x: center.x,
+            y: (Math.random() * range) / 2 + canvas.height,
             size: Math.random() + 0.5,
             fill: "#ff3",
-            vx: Math.random() * 3 - 0.5,
+            vx: Math.random() * 0.5 - 0.5,
             vy: -(Math.random() * 4 + 4),
             ax: Math.random() * 0.06 - 0.03,
             delay: Math.round(Math.random() * range) + range * 4,
             hold: false,
             alpha: 1,
-            far: Math.random() * range + (center.y - range),
+            far: Math.random() * range * 3 + (center.y - range) - 100,
           };
           fire.base = {
             x: fire.x,
@@ -774,7 +773,7 @@ $(function () {
     }
 
     // supprise happy new year!
-    if (supprise && onHold == 10) {
+    if (supprise && onHold == 4 ) {
       supprise = false;
       setTimeout(initText, 3000);
     }
