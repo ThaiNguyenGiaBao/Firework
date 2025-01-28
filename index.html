@@ -28,6 +28,21 @@
     #playButton:hover {
       opacity: 0.8;
     }
+
+    #image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 20px;
+      display: block;
+      /* Ensure it's initially visible */
+      opacity: 0;
+      display: none; 
+      /* Start fully transparent */
+      transition: opacity 1s ease-in-out;
+      /* Smooth transition for opacity */
+    }
   </style>
 </head>
 
@@ -43,7 +58,7 @@
   <div class="container">
     <button id="playButton">Start</button>
     <canvas id="canvas"></canvas>
-
+    <img src="/image.png" id="image">
   </div>
   <div class="block-audio">
     <audio class="exp" src="http://static.dar-studio.com/codepen/audio/firework/exp1.mp3" controls="controls"></audio>

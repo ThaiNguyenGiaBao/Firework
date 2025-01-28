@@ -654,6 +654,7 @@ $(function () {
 
   var isStart = false;
   let button = document.getElementById("playButton");
+  let image = document.getElementById("image");
 
   button.addEventListener("click", function () {
     musicB();
@@ -693,6 +694,8 @@ $(function () {
   if (isStart) {
     console.log(isStart);
   }
+
+  var countText = 0;
 
   function update() {
     // update fire logic
@@ -773,9 +776,18 @@ $(function () {
     }
 
     // supprise happy new year!
-    if (supprise && onHold == 4 ) {
+    if (supprise && onHold == 3) {
       supprise = false;
+      countText ++ ;
       setTimeout(initText, 3000);
+
+      if (countText == 3) {
+        setTimeout(() => {
+          isLoop = false;
+          image.style.display = "block";
+          image.style.opacity = "1"
+        }, 3000);
+      }
     }
 
     // update text logic
