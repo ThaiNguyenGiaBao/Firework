@@ -160,7 +160,7 @@ $(function () {
         vy: y * (velocity + (Math.random() - 0.5) * 0.5),
         ay: 0.08,
         alpha: 1,
-        life: Math.round((Math.random() * range) / 2) + range / 1.5,
+        life: Math.round((Math.random() * range) / 2) + range*2,
       };
       text.base = {
         life: text.life,
@@ -775,6 +775,7 @@ $(function () {
     }
 
     // supprise happy new year!
+    
     if (supprise && onHold == 3) {
       supprise = false;
       countText++;
@@ -791,7 +792,7 @@ $(function () {
         }, 10000);
       }
     }
-
+    
     // update text logic
     for (var i = listText.length - 1; i >= 0; i--) {
       var text = listText[i];
